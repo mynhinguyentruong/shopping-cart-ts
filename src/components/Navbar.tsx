@@ -6,7 +6,7 @@ import { useShoppingCart } from '../context/ShoppingCartContext'
 
 export function Navbar() {
 
-  const { totalItemsInCart, openCart, closeCart } = useShoppingCart()
+  const { totalItemsInCart, openCart } = useShoppingCart()
 
   const total = totalItemsInCart()
 

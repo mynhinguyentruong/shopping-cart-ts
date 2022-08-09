@@ -8,6 +8,7 @@ import { Home } from './pages/Home'
 import { Store } from './pages/Store'
 
 import { Navbar } from './components/Navbar'
+import { ShoppingCart } from './components/ShoppingCart'
 
 export default function App() {
   return (
@@ -20,6 +21,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </Container>
+      <ShoppingCart />
+
     </ShoppingCartProvider>
   )
 }
