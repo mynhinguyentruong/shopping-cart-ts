@@ -25,6 +25,7 @@ type ShoppingCartContext = {
   openCart: () => void
   closeCart: () => void
   isOpen: boolean
+  cartItems: any
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext)
@@ -74,6 +75,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       value={{ 
         totalItemsInCart,
         isOpen,
+        cartItems,
         openCart,
         closeCart,
         getItemQuantity, 
