@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom'
+
 export function Home() {
   return (
     <> 
     <h1>Home</h1>
-    <p>Navigate to Store to start your order!</p>
+    <p>Navigate to <Link to='/store'> Store</Link> to start your order!</p>
     </>
   )
  
