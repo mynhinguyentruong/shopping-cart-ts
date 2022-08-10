@@ -16,7 +16,7 @@ export function ShoppingCart() {
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
-    setTotal(cartItems?.reduce((sum, cartItem) => {
+    setTotal(cartItems?.reduce((sum: number, cartItem: { id: number; quantity: number; }) => {
       const item = storeItems.find(i => i.id === cartItem.id)
       return sum + (item?.price || 0) * cartItem.quantity
     }, 0))
