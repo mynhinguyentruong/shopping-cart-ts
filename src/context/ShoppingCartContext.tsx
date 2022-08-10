@@ -23,6 +23,7 @@ type ShoppingCartContext = {
   totalItemsInCart: () => number
   openCart: () => void
   closeCart: () => void
+  emptyCart: () => void
   isOpen: boolean
   cartItems: CartItem[]
 }
@@ -69,6 +70,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     return cartItems.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)
   }
 
+  function emptyCart() {
+    setCartItems([])
+  }
+
   return (
     <ShoppingCartContext.Provider 
       value={{ 
@@ -80,7 +85,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         getItemQuantity, 
         increaseCartQuantity, 
         decreaseCartQuantity, 
-        removeFromCart}}>
+        removeFromCart,
+        emptyCart
+        }}>
       {children}
     </ShoppingCartContext.Provider>
   )

@@ -11,9 +11,28 @@ import { formatCurrency } from "../utilities/formatCurrency";
 
 export function ShoppingCart() {
 
-  const { isOpen, closeCart, cartItems } = useShoppingCart()
+  const { isOpen, closeCart, cartItems, emptyCart } = useShoppingCart()
 
   const [total, setTotal] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
+
+  function checkout() {
+    setIsLoading(true)
+    
+  }
+
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false)
+        alert("Order placed! Please check your mailbox for email confirmation")
+        emptyCart()
+        
+      }, 2000)
+      
+      //clear the cart
+    }
+  })
 
   useEffect(() => {
     setTotal(cartItems?.reduce((sum: number, cartItem: { id: number; quantity: number; }) => {
@@ -33,7 +52,7 @@ export function ShoppingCart() {
             <CartItem key={item.id} {...item} />
           ))}
         <div className="ms-auto fw-bold fs-5">Total: {formatCurrency(total)}</div>
-        <Button className="fw-bold">Checkout</Button>
+        <Button className="fw-bold" onClick={checkout}>{isLoading ? "Loading..." : "Checkout"}</Button>
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>
