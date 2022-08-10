@@ -17,8 +17,8 @@ export function ShoppingCart() {
   const [isLoading, setIsLoading] = useState(false)
 
   function checkout() {
-    setIsLoading(true)
-    
+    if (cartItems.length > 0) setIsLoading(true)
+    else alert('Cart is empty!')
   }
 
   useEffect(() => {
