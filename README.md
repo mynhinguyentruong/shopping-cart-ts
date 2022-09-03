@@ -108,7 +108,7 @@ Make sure that you are using npm v16.0.0 or above.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/mynhinguyentruong/react-firebase-client.git
+   git clone https://github.com/mynhinguyentruong/shopping-cart-ts.git
    ```
 3. Install NPM packages
    ```sh
